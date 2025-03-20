@@ -20,6 +20,9 @@ export const verifyWebhook = (req: Request, res: Response) => {
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
 
+  console.log("🔍 Token recibido:", token);
+  console.log("🔐 Token esperado:", config.VERIFY_TOKEN);
+
   if (mode === "subscribe" && token === config.VERIFY_TOKEN) {
     console.log("✅ Webhook verificado correctamente.");
     res.status(200).send(challenge);
