@@ -9,6 +9,9 @@ app.use(express.json());
 // Rutas de prueba
 app.use("/api", webhookRoutes);
 app.use("/api", exampleRoutes);
+app.get("/", (req, res) => {
+  res.send("Hola Mundo");
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
